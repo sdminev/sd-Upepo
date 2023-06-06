@@ -1,0 +1,114 @@
+flynt-component[name='FeatureFrontendEditor'] {
+  .loading-indicator {
+    display: none;
+    inset: 0;
+    place-content: center;
+    pointer-events: none;
+    position: absolute;
+
+    .spinner {
+      --spinner-size: 25px;
+      background-repeat: no-repeat;
+      background-size: var(--spinner-size) var(--spinner-size);
+      block-size: var(--spinner-size);
+      display: inline-block;
+      inline-size: var(--spinner-size);
+      opacity: .7;
+      vertical-align: middle;
+    }
+  }
+
+  &[data-is-iframe-loading='true'] {
+    iframe {
+      opacity: 0;
+    }
+
+    .loading-indicator {
+      display: grid;
+    }
+  }
+
+  aside {
+    background-color: #fff;
+    block-size: calc(100vh - var(--wp-admin--admin-bar--height));
+    box-shadow: 5px 0 10px hsla(0, 0%, 0%, 0.2);
+    inline-size: min(600px, 100%);
+    inset: var(--wp-admin--admin-bar--height) auto auto 0;
+    max-inline-size: min(600px, 100%);
+    min-inline-size: 300px;
+    overflow: scroll;
+    position: fixed;
+    resize: horizontal;
+    z-index: 9999;
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
+  }
+
+  iframe {
+    block-size: 100%;
+    border: 0;
+    inline-size: 100%;
+  }
+}
+
+[data-post-is-saving="true"] {
+  cursor: wait;
+
+  * {
+    pointer-events: none;
+  }
+
+  .pageWrapper {
+    opacity: 0.5;
+  }
+}
+
+[data-sidebar-visible="true"] {
+  @media (min-width: 1024px){
+    margin-inline-start: min(600px, 100%);
+  }
+}
+
+// stylelint-disable-next-line selector-max-id
+#wpadminbar #wp-admin-bar-frontend-editing {
+  display: block;
+
+  // stylelint-disable-next-line selector-max-id
+  > .ab-item {
+    background-color: #2271b1;
+    color: #fff;
+    cursor: pointer;
+
+    @media (max-width: 782px){
+      block-size: 46px;
+      inline-size: 52px;
+      overflow: hidden;
+      text-indent: -999px;
+      white-space: nowrap;
+    }
+
+    // stylelint-disable-next-line selector-max-id
+    &:hover {
+      background-color: #135e96;
+      color: #fff;
+    }
+
+    // stylelint-disable-next-line selector-max-id
+    &::before {
+      align-items: center;
+      content: "\f115";
+      inset-block-start: 2px;
+
+      @media (max-width: 782px){
+        block-size: 100%;
+        display: grid;
+        font-size: 32px;
+        inline-size: 100%;
+        justify-content: center;
+        text-indent: 0;
+      }
+    }
+  }
+}
