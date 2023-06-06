@@ -1,0 +1,75 @@
+.hamburger {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  margin-right: -9px;
+  position: relative;
+  width: 48px;
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &-lines {
+    height: 18px;
+    position: relative;
+    width: 30px;
+
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    &::before,
+    &::after,
+    &--primary,
+    &--secondary {
+      background-color: var(--color-text);
+      display: block;
+      height: 2px;
+      left: 0;
+      position: absolute;
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
+      width: 30px;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &--primary,
+    &--secondary {
+      top: 8px;
+    }
+
+    &::after {
+      top: 16px;
+    }
+  }
+}
+
+&.flyntComponent-menuIsOpen .hamburger-lines {
+  &::before,
+  &::after {
+    opacity: 0;
+  }
+
+  &::before {
+    transform: scale(0) translateY(8px);
+  }
+
+  &::after {
+    transform: scale(0) translateY(-8px);
+  }
+
+  &--primary {
+    transform: rotate(45deg);
+  }
+
+  &--secondary {
+    transform: rotate(-45deg);
+  }
+}

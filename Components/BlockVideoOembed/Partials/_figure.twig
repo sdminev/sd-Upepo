@@ -1,0 +1,11 @@
+<figure class="figure">
+  <img is="flynt-image" class="figure-image"
+    src="{{ image.src|resizeDynamic(1280, 720) }}"
+    srcset="{{ placeholderImage(1280, 720) }}"
+    data-src="{{ image.src|generateRiasUrl(null, 0) }}"
+    data-aspectratio="1.77777778"
+    alt="{{ image.alt|e }}">
+  {% if image.caption %}
+    <figcaption class="figure-caption">{{ image.caption|e }}</figcaption>
+  {% endif %}
+</figure>
