@@ -1,0 +1,37 @@
+[is='flynt-block-image'] {
+  &.flyntComponent--sizeSmall {
+    .figure {
+      max-width: 375px;
+    }
+  }
+
+  &.flyntComponent--sizeMedium {
+    .figure {
+      max-width: var(--content-max-width);
+    }
+  }
+
+  &.flyntComponent--sizeLarge {
+    .figure {
+      max-width: var(--content-max-width-large);
+    }
+  }
+
+  &.flyntComponent--sizeFull {
+    .figure-image {
+      border-radius: 0;
+    }
+  }
+
+  .figure {
+    margin: 0 auto;
+
+    &-image {
+      background-color: var(--color-border-alpha);
+
+      &.lazyloaded {
+        background-color: transparent;
+      }
+    }
+  }
+}
